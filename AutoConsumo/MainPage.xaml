@@ -8,6 +8,14 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-
+        <TextBlock Text="Calcular Consumo" FontSize="45" HorizontalAlignment="Left" Margin="90,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="383"/>
+        <TextBlock Text="KM rodado:" FontSize="36" HorizontalAlignment="Left" Margin="90,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="301"/>
+        <TextBox x:Name="in_kmRodado" HorizontalAlignment="Left" Margin="319,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
+        <TextBlock Text="KM" FontSize="24" Margin="554,135,745,593"/>
+        <TextBlock Text="Litros Gasto:" FontSize="36" HorizontalAlignment="Left" Margin="90,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="301"/>
+        <TextBox x:Name="in_LitrosGastos" HorizontalAlignment="Left" Margin="319,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
+        <Button Content="Calcular" FontSize="36" Margin="380,243,0,461" Click="bt_calcular" Height="64"></Button>
+        <TextBlock x:Name="tb_kmPorLitro" FontSize="36" Foreground="Crimson" Margin="90,314,740,381"></TextBlock>
+        <TextBlock Text="Litros" FontSize="24" Margin="554,194,745,534"/>
     </Grid>
 </Page>

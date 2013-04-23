@@ -34,5 +34,24 @@ namespace AutoConsumo
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
+
+        private void bt_calcular(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                double kmrodado = Double.Parse(in_kmRodado.Text);
+                double litrosGastos = Double.Parse(in_LitrosGastos.Text);
+                tb_kmPorLitro.Text = kmrodado/litrosGastos + "KM/L";
+            }
+            catch (FormatException e1)
+            {
+                tb_kmPorLitro.Text = "Valor passado não é válido.";
+            }
+            catch (OverflowException e1)
+            {
+                tb_kmPorLitro.Text = "Valor Passado ultrapassa o limite.";
+            }
+            
+        }
     }
 }
