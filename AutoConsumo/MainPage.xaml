@@ -7,16 +7,83 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Calcular Consumo" FontSize="45" HorizontalAlignment="Left" Margin="90,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="383"/>
-        <TextBlock Text="KM rodado:" FontSize="36" HorizontalAlignment="Left" Margin="90,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="301"/>
-        <TextBox x:Name="in_kmRodado" HorizontalAlignment="Left" Margin="319,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
-        <TextBlock Text="KM" FontSize="24" Margin="554,135,745,593"/>
-        <TextBlock Text="Litros Gasto:" FontSize="36" HorizontalAlignment="Left" Margin="90,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="301"/>
-        <TextBox x:Name="in_LitrosGastos" HorizontalAlignment="Left" Margin="319,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
-        <Button Content="Calcular" FontSize="36" Margin="380,243,0,461" Click="bt_calcular" Height="64"></Button>
-        <TextBlock x:Name="tb_kmPorLitro" FontSize="36" Foreground="Crimson" Margin="90,314,740,381"></TextBlock>
-        <TextBlock Text="Litros" FontSize="24" Margin="554,194,745,534"/>
-        <TextBlock Text="Primeiro Commit MeuNome" FontSize="24"/>
+    <Grid HorizontalAlignment="Center" Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Margin="10,0,0,0" Width="1356">
+
+        <Grid Margin="30,30,30,30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="340"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="620"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+                <TextBlock Text="Calcular Consumo" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="383"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="KM rodado:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="201"/>
+                    <TextBox x:Name="in_kmRodado" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
+                    <Grid Margin="5"></Grid>
+                    <TextBlock Text="KM" FontSize="24" VerticalAlignment="Bottom"/>
+                </StackPanel>
+                <Grid Margin="5"></Grid>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Litros Gasto:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="201"/>
+                    <TextBox x:Name="in_listrosGasto" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
+                    <Grid Margin="5"></Grid>
+                    <TextBlock Text="Litros" FontSize="24" VerticalAlignment="Bottom"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Calcular" FontSize="36" Click="bt_calcular" Height="64"></Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="tb_kmPorLitro" FontSize="36" Foreground="Red" HorizontalAlignment="Left"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                <TextBlock Text="Álcool x Gasolina" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="383"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Gasolina:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
+                    <TextBlock Text="R$" FontSize="24" VerticalAlignment="Bottom"/>
+                    <Grid Margin="5"/>
+                    <TextBox x:Name="in_Gasolina" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
+                </StackPanel>
+
+                <Grid Margin="5"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Alcool:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
+                    <TextBlock Text="R$" FontSize="24" VerticalAlignment="Bottom"/>
+                    <Grid Margin="5"/>
+                    <TextBox x:Name="in_alcool" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical">
+                    <Button Content="Verificar" FontSize="36" Click="bt_alcool_x_gasolina" Height="64"></Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical">
+                    <TextBlock x:Name="tb_alcoolxgasolina" FontSize="36" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <TextBlock Text="Gasolina da Viagem" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="600"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <TextBlock Text="Informações" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="69" Width="383"/>
+                <TextBlock x:Name="tb_info"  FontSize="35" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="272" Width="656" Foreground="Red"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

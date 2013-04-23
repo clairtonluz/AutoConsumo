@@ -39,19 +39,54 @@ namespace AutoConsumo
         {
             try
             {
+                in_kmRodado.Text = in_kmRodado.Text.Replace(',', '.');
+                in_listrosGasto.Text = in_listrosGasto.Text.Replace(',', '.');
+                
                 double kmrodado = Double.Parse(in_kmRodado.Text);
-                double litrosGastos = Double.Parse(in_LitrosGastos.Text);
-                tb_kmPorLitro.Text = kmrodado/litrosGastos + "KM/L";
+                double litrosGastos = Double.Parse(in_listrosGasto.Text);
+                tb_info.Text = "Consumo = " + kmrodado/litrosGastos + " KM/L";
             }
             catch (FormatException e1)
             {
-                tb_kmPorLitro.Text = "Valor passado não é válido.";
+                tb_info.Text = "Valor passado não é válido.";
             }
             catch (OverflowException e1)
             {
-                tb_kmPorLitro.Text = "Valor Passado ultrapassa o limite.";
+                tb_info.Text = "Valor Passado ultrapassa o limite.";
             }
             
+        }
+
+        private void bt_alcool_x_gasolina(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                in_Gasolina.Text = in_Gasolina.Text.Replace(',', '.');
+                in_alcool.Text = in_alcool.Text.Replace(',', '.');
+                double gasolina = Double.Parse(in_Gasolina.Text);
+                double alcool = Double.Parse(in_alcool.Text);
+
+                double porcento = 100 - ((alcool*100)/gasolina);
+
+                if (porcento > 30)
+                {
+                    tb_info.Text = "Abastecer alcool é mais lucrativo. \n alcool está = " + porcento +
+                                   "% mais em conta.";
+                }
+                else
+                {
+                    tb_info.Text = "Abastecer gasolina é mais lucrativo. \nAlcool está apenas = " + porcento + "% mais em conta. \n" +
+                                   "o alcool só compençará se estiver acima de 30% mais barato.";
+                }
+            }
+            catch (FormatException e1)
+            {
+                tb_info.Text = "Valor passado não é válido.";
+            }
+            catch (OverflowException e1)
+            {
+                tb_info.Text = "Valor Passado ultrapassa o limite.";
+            }
         }
     }
 }
