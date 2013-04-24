@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid HorizontalAlignment="Center" Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Margin="10,0,0,0" Width="1356">
-
+    <Grid HorizontalAlignment="Center" Background="Blue" Width="1366">
+    
         <Grid Margin="30,30,30,30">
             <Grid.RowDefinitions>
                 <RowDefinition Height="340"/>
@@ -25,14 +25,14 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="KM rodado:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="201"/>
-                    <TextBox x:Name="in_kmRodado" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
+                    <TextBox x:Name="in_kmRodado" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite a quantidade de quilômetros rodados."/>
                     <Grid Margin="5"></Grid>
                     <TextBlock Text="KM" FontSize="24" VerticalAlignment="Bottom"/>
                 </StackPanel>
                 <Grid Margin="5"></Grid>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Litros Gasto:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="201"/>
-                    <TextBox x:Name="in_listrosGasto" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
+                    <TextBox x:Name="in_listrosGasto" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite a quantidade de combustivel gasto em litros."/>
                     <Grid Margin="5"></Grid>
                     <TextBlock Text="Litros" FontSize="24" VerticalAlignment="Bottom"/>
                 </StackPanel>
@@ -40,7 +40,7 @@
                 <Grid Margin="5"/>
 
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Calcular" FontSize="36" Click="bt_calcular" Height="64"></Button>
+                    <Button Content="Calcular" FontSize="36" Click="bt_calcular" Height="64" ToolTipService.ToolTip="Calcular o consumo do seu veiculo"></Button>
                 </StackPanel>
 
             </StackPanel>
@@ -51,7 +51,7 @@
                     <TextBlock Text="Gasolina:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
                     <TextBlock Text="R$" FontSize="24" VerticalAlignment="Bottom"/>
                     <Grid Margin="5"/>
-                    <TextBox x:Name="in_Gasolina" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
+                    <TextBox x:Name="in_Gasolina" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o preço da gasolina."/>
                 </StackPanel>
 
                 <Grid Margin="5"/>
@@ -60,32 +60,32 @@
                     <TextBlock Text="Alcool:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
                     <TextBlock Text="R$" FontSize="24" VerticalAlignment="Bottom"/>
                     <Grid Margin="5"/>
-                    <TextBox x:Name="in_alcool" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
+                    <TextBox x:Name="in_alcool" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o preço do álcool."/>
 
                 </StackPanel>
 
                 <Grid Margin="5"/>
 
                 <StackPanel Orientation="Vertical">
-                    <Button Content="Verificar" FontSize="36" Click="bt_alcool_x_gasolina" Height="64"/>
+                    <Button Content="Verificar" FontSize="36" Click="bt_alcool_x_gasolina" Height="64" ToolTipService.ToolTip="Verifica qual a melhor opção para abastecer."/>
                 </StackPanel>
 
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="0">
-                <TextBlock Text="Gasolina da Viagem" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="600"/>
+                <TextBlock Text="Combustivel da Viagem" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="600"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Distância:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
-                    <TextBox x:Name="in_distancia" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
+                    <TextBox x:Name="in_distancia" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite a distância do local de origem até o local de destino em quilômetros."/>
                     <Grid Margin="5"/>
                     <TextBlock Text="KM" FontSize="24" VerticalAlignment="Bottom"/>
                 </StackPanel>
 
                 <Grid Margin="5"/>
-                
+
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Consumo:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
-                    <TextBox x:Name="in_consumo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
+                    <TextBox x:Name="in_consumo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o consumo do seu carro. Caso não saiba calcule aqui na sessão 'Calcular Consumo'."/>
                     <Grid Margin="5"/>
                     <TextBlock Text="KM/L" FontSize="24" VerticalAlignment="Bottom"/>
                 </StackPanel>
@@ -93,13 +93,13 @@
                 <Grid Margin="5"/>
 
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Calcular" FontSize="36" Height="64" Click="bt_calcular_viagem"></Button>
+                    <Button Content="Calcular" FontSize="36" Height="64" Click="bt_calcular_viagem" ToolTipService.ToolTip="Calcula quanto de combustivel você irá precisar para sua viagem."></Button>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1">
                 <TextBlock Text="Informações" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="69" Width="383"/>
-                <TextBlock x:Name="tb_info"  FontSize="35" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="272" Width="656" Foreground="Red"/>
+                <TextBlock x:Name="tb_info"  FontSize="35" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="272" Width="656" Foreground="White"/>
             </StackPanel>
         </Grid>
     </Grid>

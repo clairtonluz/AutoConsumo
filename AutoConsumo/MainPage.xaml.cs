@@ -39,21 +39,18 @@ namespace AutoConsumo
         {
             try
             {
-                in_kmRodado.Text = in_kmRodado.Text.Replace(',', '.');
-                in_listrosGasto.Text = in_listrosGasto.Text.Replace(',', '.');
+                in_kmRodado.Text = in_kmRodado.Text.Replace('.', ',');
+                in_listrosGasto.Text = in_listrosGasto.Text.Replace('.', ',');
                 
                 double kmrodado = Double.Parse(in_kmRodado.Text);
                 double litrosGastos = Double.Parse(in_listrosGasto.Text);
-                tb_info.Text = "Consumo = " + kmrodado/litrosGastos + " KM/L";
-                in_consumo.Text = "" + kmrodado/litrosGastos;
+                double resultado = kmrodado/litrosGastos;
+                tb_info.Text = "Consumo = " + resultado + " KM/L";
+                in_consumo.Text = "" + resultado;
             }
             catch (FormatException e1)
             {
                 tb_info.Text = "Valor passado não é válido.";
-            }
-            catch (OverflowException e1)
-            {
-                tb_info.Text = "Valor Passado ultrapassa o limite.";
             }
             
         }
@@ -62,8 +59,8 @@ namespace AutoConsumo
         {
             try
             {
-                in_Gasolina.Text = in_Gasolina.Text.Replace(',', '.');
-                in_alcool.Text = in_alcool.Text.Replace(',', '.');
+                in_Gasolina.Text = in_Gasolina.Text.Replace('.', ',');
+                in_alcool.Text = in_alcool.Text.Replace('.', ',');
                 double gasolina = Double.Parse(in_Gasolina.Text);
                 double alcool = Double.Parse(in_alcool.Text);
 
@@ -71,31 +68,28 @@ namespace AutoConsumo
 
                 if (porcento > 30)
                 {
-                    tb_info.Text = "Abastecer alcool é mais lucrativo. \n alcool está = " + porcento +
+                    tb_info.Text = "Abastecer alcool é mais lucrativo. \nalcool está = " + porcento +
                                    "% mais em conta.";
                 }
                 else
                 {
-                    tb_info.Text = "Abastecer gasolina é mais lucrativo. \nAlcool está apenas = " + porcento + "% mais em conta. \n" +
-                                   "o alcool só compençará se estiver acima de 30% mais barato.";
+                    tb_info.Text = "Abastecer gasolina é mais lucrativo.\nAlcool está apenas = " + porcento + "% mais em conta.\n" +
+                                   "O alcool só compençará se estiver acima de 30% mais barato.";
                 }
             }
             catch (FormatException e1)
             {
                 tb_info.Text = "Valor passado não é válido.";
             }
-            catch (OverflowException e1)
-            {
-                tb_info.Text = "Valor Passado ultrapassa o limite.";
-            }
+           
         }
 
         private void bt_calcular_viagem(object sender, RoutedEventArgs e)
         {
             try
             {
-                in_distancia.Text = in_distancia.Text.Replace(',', '.');
-                in_consumo.Text = in_consumo.Text.Replace(',', '.');
+                in_distancia.Text = in_distancia.Text.Replace('.', ',');
+                in_consumo.Text = in_consumo.Text.Replace('.', ',');
 
                 double distancia = Double.Parse(in_distancia.Text);
                 double consumo = Double.Parse(in_consumo.Text);
@@ -105,10 +99,6 @@ namespace AutoConsumo
             catch (FormatException e1)
             {
                 tb_info.Text = "Valor passado não é válido.";
-            }
-            catch (OverflowException e1)
-            {
-                tb_info.Text = "Valor Passado ultrapassa o limite.";
             }
             
         }
