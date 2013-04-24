@@ -45,6 +45,7 @@ namespace AutoConsumo
                 double kmrodado = Double.Parse(in_kmRodado.Text);
                 double litrosGastos = Double.Parse(in_listrosGasto.Text);
                 tb_info.Text = "Consumo = " + kmrodado/litrosGastos + " KM/L";
+                in_consumo.Text = "" + kmrodado/litrosGastos;
             }
             catch (FormatException e1)
             {
@@ -87,6 +88,29 @@ namespace AutoConsumo
             {
                 tb_info.Text = "Valor Passado ultrapassa o limite.";
             }
+        }
+
+        private void bt_calcular_viagem(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                in_distancia.Text = in_distancia.Text.Replace(',', '.');
+                in_consumo.Text = in_consumo.Text.Replace(',', '.');
+
+                double distancia = Double.Parse(in_distancia.Text);
+                double consumo = Double.Parse(in_consumo.Text);
+                tb_info.Text = "Para viajar " + in_distancia.Text + " KM é necessário " + distancia/consumo +
+                    " litros de combustivel.";
+            }
+            catch (FormatException e1)
+            {
+                tb_info.Text = "Valor passado não é válido.";
+            }
+            catch (OverflowException e1)
+            {
+                tb_info.Text = "Valor Passado ultrapassa o limite.";
+            }
+            
         }
     }
 }

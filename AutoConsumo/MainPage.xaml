@@ -37,12 +37,10 @@
                     <TextBlock Text="Litros" FontSize="24" VerticalAlignment="Bottom"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="Calcular" FontSize="36" Click="bt_calcular" Height="64"></Button>
-                </StackPanel>
+                <Grid Margin="5"/>
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="tb_kmPorLitro" FontSize="36" Foreground="Red" HorizontalAlignment="Left"/>
+                    <Button Content="Calcular" FontSize="36" Click="bt_calcular" Height="64"></Button>
                 </StackPanel>
 
             </StackPanel>
@@ -66,18 +64,37 @@
 
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical">
-                    <Button Content="Verificar" FontSize="36" Click="bt_alcool_x_gasolina" Height="64"></Button>
-                </StackPanel>
+                <Grid Margin="5"/>
 
                 <StackPanel Orientation="Vertical">
-                    <TextBlock x:Name="tb_alcoolxgasolina" FontSize="36" Foreground="Red" HorizontalAlignment="Left" TextWrapping="Wrap"/>
+                    <Button Content="Verificar" FontSize="36" Click="bt_alcool_x_gasolina" Height="64"/>
                 </StackPanel>
 
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="0">
                 <TextBlock Text="Gasolina da Viagem" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="600"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Distância:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
+                    <TextBox x:Name="in_distancia" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
+                    <Grid Margin="5"/>
+                    <TextBlock Text="KM" FontSize="24" VerticalAlignment="Bottom"/>
+                </StackPanel>
+
+                <Grid Margin="5"/>
+                
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Consumo:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
+                    <TextBox x:Name="in_consumo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43"/>
+                    <Grid Margin="5"/>
+                    <TextBlock Text="KM/L" FontSize="24" VerticalAlignment="Bottom"/>
+                </StackPanel>
+
+                <Grid Margin="5"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Calcular" FontSize="36" Height="64" Click="bt_calcular_viagem"></Button>
+                </StackPanel>
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1">
