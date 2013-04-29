@@ -12,14 +12,14 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+// The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
 namespace AutoConsumo
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : AutoConsumo.Common.LayoutAwarePage
     {
         public MainPage()
         {
@@ -27,11 +27,25 @@ namespace AutoConsumo
         }
 
         /// <summary>
-        /// Invoked when this page is about to be displayed in a Frame.
+        /// Populates the page with content passed during navigation.  Any saved state is also
+        /// provided when recreating a page from a prior session.
         /// </summary>
-        /// <param name="e">Event data that describes how this page was reached.  The Parameter
-        /// property is typically used to configure the page.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        /// <param name="navigationParameter">The parameter value passed to
+        /// <see cref="Frame.Navigate(Type, Object)"/> when this page was initially requested.
+        /// </param>
+        /// <param name="pageState">A dictionary of state preserved by this page during an earlier
+        /// session.  This will be null the first time a page is visited.</param>
+        protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
+        {
+        }
+
+        /// <summary>
+        /// Preserves state associated with this page in case the application is suspended or the
+        /// page is discarded from the navigation cache.  Values must conform to the serialization
+        /// requirements of <see cref="SuspensionManager.SessionState"/>.
+        /// </summary>
+        /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
+        protected override void SaveState(Dictionary<String, Object> pageState)
         {
         }
 
@@ -41,10 +55,10 @@ namespace AutoConsumo
             {
                 in_kmRodado.Text = in_kmRodado.Text.Replace('.', ',');
                 in_listrosGasto.Text = in_listrosGasto.Text.Replace('.', ',');
-                
+
                 double kmrodado = Double.Parse(in_kmRodado.Text);
                 double litrosGastos = Double.Parse(in_listrosGasto.Text);
-                double resultado = kmrodado/litrosGastos;
+                double resultado = kmrodado / litrosGastos;
                 tb_info.Text = "Consumo = " + resultado + " KM/L";
                 in_consumo.Text = "" + resultado;
             }
@@ -52,7 +66,7 @@ namespace AutoConsumo
             {
                 tb_info.Text = "Valor passado não é válido.";
             }
-            
+
         }
 
         private void bt_alcool_x_gasolina(object sender, RoutedEventArgs e)
@@ -64,7 +78,7 @@ namespace AutoConsumo
                 double gasolina = Double.Parse(in_Gasolina.Text);
                 double alcool = Double.Parse(in_alcool.Text);
 
-                double porcento = 100 - ((alcool*100)/gasolina);
+                double porcento = 100 - ((alcool * 100) / gasolina);
 
                 if (porcento > 30)
                 {
@@ -81,7 +95,7 @@ namespace AutoConsumo
             {
                 tb_info.Text = "Valor passado não é válido.";
             }
-           
+
         }
 
         private void bt_calcular_viagem(object sender, RoutedEventArgs e)
@@ -93,14 +107,21 @@ namespace AutoConsumo
 
                 double distancia = Double.Parse(in_distancia.Text);
                 double consumo = Double.Parse(in_consumo.Text);
-                tb_info.Text = "Para viajar " + in_distancia.Text + " KM é necessário " + distancia/consumo +
+                tb_info.Text = "Para viajar " + in_distancia.Text + " KM é necessário " + distancia / consumo +
                     " litros de combustivel.";
             }
             catch (FormatException e1)
             {
                 tb_info.Text = "Valor passado não é válido.";
             }
-            
+
+        }
+
+        private void in_consumo_TextChange(object sender, TextChangedEventArgs e)
+        {
+            Windows.Storage.ApplicationDataContainer roamingSettings =
+                Windows.Storage.ApplicationData.Current.RoamingSettings;
+            roamingSettings.Values["consumo"] = in_consumo.Text;
         }
     }
 }
