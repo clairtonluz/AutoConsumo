@@ -37,6 +37,37 @@ namespace AutoConsumo
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
+            if (pageState != null && pageState.ContainsKey("in_kmRodado"))
+            {
+                in_kmRodado.Text = pageState["in_kmRodado"].ToString();
+            }
+
+            if (pageState != null && pageState.ContainsKey("in_litrosGasto"))
+            {
+                in_listrosGasto.Text = pageState["in_litrosGasto"].ToString();
+            }
+
+            if (pageState != null && pageState.ContainsKey("in_distancia"))
+            {
+                in_distancia.Text = pageState["in_distancia"].ToString();
+            }
+
+            Windows.Storage.ApplicationDataContainer roamingSettings =
+                Windows.Storage.ApplicationData.Current.RoamingSettings;
+            if (roamingSettings.Values.ContainsKey("in_consumo"))
+            {
+                in_consumo.Text = roamingSettings.Values["in_consumo"].ToString();
+            }
+
+            if (roamingSettings.Values.ContainsKey("in_gasolina"))
+            {
+                in_gasolina.Text = roamingSettings.Values["in_gasolina"].ToString();
+            }
+
+            if (roamingSettings.Values.ContainsKey("in_alcool"))
+            {
+                in_alcool.Text = roamingSettings.Values["in_alcool"].ToString();
+            }
         }
 
         /// <summary>
@@ -47,6 +78,9 @@ namespace AutoConsumo
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
+            pageState["in_kmRodado"] = in_kmRodado.Text;
+            pageState["in_litrosGasto"] = in_listrosGasto.Text;
+            pageState["in_distancia"] = in_distancia.Text;
         }
 
         private void bt_calcular(object sender, RoutedEventArgs e)
@@ -73,9 +107,9 @@ namespace AutoConsumo
         {
             try
             {
-                in_Gasolina.Text = in_Gasolina.Text.Replace('.', ',');
+                in_gasolina.Text = in_gasolina.Text.Replace('.', ',');
                 in_alcool.Text = in_alcool.Text.Replace('.', ',');
-                double gasolina = Double.Parse(in_Gasolina.Text);
+                double gasolina = Double.Parse(in_gasolina.Text);
                 double alcool = Double.Parse(in_alcool.Text);
 
                 double porcento = 100 - ((alcool * 100) / gasolina);
@@ -117,11 +151,26 @@ namespace AutoConsumo
 
         }
 
-        private void in_consumo_TextChange(object sender, TextChangedEventArgs e)
+        
+        private void in_consumo_TextChanged(object sender, TextChangedEventArgs e)
         {
             Windows.Storage.ApplicationDataContainer roamingSettings =
                 Windows.Storage.ApplicationData.Current.RoamingSettings;
-            roamingSettings.Values["consumo"] = in_consumo.Text;
+            roamingSettings.Values["in_consumo"] = in_consumo.Text;
+        }
+
+        private void in_alcool_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Windows.Storage.ApplicationDataContainer roamingSettings =
+                Windows.Storage.ApplicationData.Current.RoamingSettings;
+            roamingSettings.Values["in_alcool"] = in_alcool.Text;
+        }
+
+        private void in_gasolina_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Windows.Storage.ApplicationDataContainer roamingSettings =
+                Windows.Storage.ApplicationData.Current.RoamingSettings;
+            roamingSettings.Values["in_gasolina"] = in_gasolina.Text;
         }
     }
 }

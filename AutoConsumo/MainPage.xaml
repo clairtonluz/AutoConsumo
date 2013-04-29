@@ -14,6 +14,8 @@
 
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">Auto Consumo</x:String>
+        <TextBlock x:Name="pageTitle"/>
+        <Button x:Name="backButton"></Button>
     </Page.Resources>
 
     <!--
@@ -65,7 +67,7 @@
                     <TextBlock Text="Gasolina:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
                     <TextBlock Text="R$" FontSize="24" VerticalAlignment="Bottom"/>
                     <Grid Margin="5"/>
-                    <TextBox x:Name="in_Gasolina" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o preço da gasolina."/>
+                    <TextBox x:Name="in_gasolina" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o preço da gasolina." TextChanged="in_gasolina_TextChanged"/>
                 </StackPanel>
 
                 <Grid Margin="5"/>
@@ -74,7 +76,7 @@
                     <TextBlock Text="Alcool:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
                     <TextBlock Text="R$" FontSize="24" VerticalAlignment="Bottom"/>
                     <Grid Margin="5"/>
-                    <TextBox x:Name="in_alcool" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o preço do álcool."/>
+                    <TextBox x:Name="in_alcool" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o preço do álcool." TextChanged="in_alcool_TextChanged"/>
 
                 </StackPanel>
 
@@ -99,7 +101,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Consumo:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
-                    <TextBox x:Name="in_consumo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o consumo do seu carro. Caso não saiba calcule aqui na sessão 'Calcular Consumo'."/>
+                    <TextBox x:Name="in_consumo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o consumo do seu carro. Caso não saiba calcule aqui na sessão 'Calcular Consumo'." TextChanged="in_consumo_TextChanged"/>
                     <Grid Margin="5"/>
                     <TextBlock Text="KM/L" FontSize="24" VerticalAlignment="Bottom"/>
                 </StackPanel>
