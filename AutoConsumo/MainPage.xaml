@@ -14,137 +14,334 @@
 
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">Auto Consumo</x:String>
-        <TextBlock x:Name="pageTitle"/>
-        <Button x:Name="backButton"></Button>
+
     </Page.Resources>
+    <common:LayoutAwarePage.TopAppBar>
+        <AppBar>
+            <Button Content="teste" Style="{StaticResource PicturesAppBarButtonStyle}"/>
+        </AppBar>
+    </common:LayoutAwarePage.TopAppBar>
+    <common:LayoutAwarePage.Background>
+        <ImageBrush/>
+    </common:LayoutAwarePage.Background>
 
     <!--
         This grid acts as a root panel for the page that defines two rows:
         * Row 0 contains the back button and page title
         * Row 1 contains the rest of the page layout
     -->
+
     <Grid HorizontalAlignment="Center" Background="Blue" Width="1366">
+        <StackPanel x:Name="sp_titulo" Height="80" Margin="80,15,20,653">
+            <TextBlock x:Name="tb_appName" TextWrapping="Wrap" Text="Auto Consumo" Style="{StaticResource PageHeaderTextStyle}" FontWeight="Bold"/>
+        </StackPanel>
 
-        <Grid Margin="30,30,30,30">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="340"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <StackPanel x:Name="sp_principal" Margin="0,110,0,0">
+        <StackPanel x:Name="sp_1" Orientation="Horizontal" Margin="120,0,0,0">
+                <StackPanel x:Name="sp_consumo" Orientation="Vertical" Width="610">
+                    <TextBlock Text="Calcular Consumo" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="383"/>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="620"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
-                <TextBlock Text="Calcular Consumo" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="383"/>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="KM rodado:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="201"/>
-                    <TextBox x:Name="in_kmRodado" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite a quantidade de quilômetros rodados."/>
-                    <Grid Margin="5"></Grid>
-                    <TextBlock Text="KM" FontSize="24" VerticalAlignment="Bottom"/>
-                </StackPanel>
-                <Grid Margin="5"></Grid>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Litros Gasto:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="201"/>
-                    <TextBox x:Name="in_listrosGasto" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite a quantidade de combustivel gasto em litros."/>
-                    <Grid Margin="5"></Grid>
-                    <TextBlock Text="Litros" FontSize="24" VerticalAlignment="Bottom"/>
-                </StackPanel>
-
-                <Grid Margin="5"/>
-
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="Calcular" FontSize="36" Click="bt_calcular" Height="64" ToolTipService.ToolTip="Calcular o consumo do seu veiculo"></Button>
-                </StackPanel>
-
-            </StackPanel>
-
-            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
-                <TextBlock Text="Álcool x Gasolina" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="383"/>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Gasolina:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
-                    <TextBlock Text="R$" FontSize="24" VerticalAlignment="Bottom"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="KM rodado:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="201"/>
+                        <TextBox x:Name="in_kmRodado" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite a quantidade de quilômetros rodados."/>
+                        <Grid Margin="5"/>
+                        <TextBlock Text="KM" FontSize="24" VerticalAlignment="Bottom"/>
+                    </StackPanel>
                     <Grid Margin="5"/>
-                    <TextBox x:Name="in_gasolina" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o preço da gasolina." TextChanged="in_gasolina_TextChanged"/>
-                </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Litros Gasto:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="201"/>
+                        <TextBox x:Name="in_listrosGasto" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite a quantidade de combustivel gasto em litros."/>
+                        <Grid Margin="5"/>
+                        <TextBlock Text="Litros" FontSize="24" VerticalAlignment="Bottom"/>
+                    </StackPanel>
 
-                <Grid Margin="5"/>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Alcool:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
-                    <TextBlock Text="R$" FontSize="24" VerticalAlignment="Bottom"/>
                     <Grid Margin="5"/>
-                    <TextBox x:Name="in_alcool" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o preço do álcool." TextChanged="in_alcool_TextChanged"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Calcular" FontSize="36" Click="bt_calcular" Height="64" ToolTipService.ToolTip="Calcular o consumo do seu veiculo"/>
+                    </StackPanel>
 
                 </StackPanel>
+                <TextBlock x:Name="tb_divisaoConsumoAlcool" Margin="50,50,0,0"/>
+                <StackPanel x:Name="sp_alcoolXgasolina" Orientation="Vertical">
+                    <TextBlock Text="Álcool x Gasolina" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="383"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Gasolina:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
+                        <TextBlock Text="R$" FontSize="24" VerticalAlignment="Bottom"/>
+                        <Grid Margin="5"/>
+                        <TextBox x:Name="in_gasolina" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o preço da gasolina." TextChanged="in_gasolina_TextChanged"/>
+                    </StackPanel>
 
-                <Grid Margin="5"/>
-
-                <StackPanel Orientation="Vertical">
-                    <Button Content="Verificar" FontSize="36" Click="bt_alcool_x_gasolina" Height="64" ToolTipService.ToolTip="Verifica qual a melhor opção para abastecer."/>
-                </StackPanel>
-
-            </StackPanel>
-
-            <StackPanel Grid.Row="1" Grid.Column="0">
-                <TextBlock Text="Combustivel da Viagem" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="600"/>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Distância:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
-                    <TextBox x:Name="in_distancia" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite a distância do local de origem até o local de destino em quilômetros."/>
                     <Grid Margin="5"/>
-                    <TextBlock Text="KM" FontSize="24" VerticalAlignment="Bottom"/>
-                </StackPanel>
 
-                <Grid Margin="5"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Alcool:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
+                        <TextBlock Text="R$" FontSize="24" VerticalAlignment="Bottom"/>
+                        <Grid Margin="5"/>
+                        <TextBox x:Name="in_alcool" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o preço do álcool." TextChanged="in_alcool_TextChanged"/>
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Consumo:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
-                    <TextBox x:Name="in_consumo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o consumo do seu carro. Caso não saiba calcule aqui na sessão 'Calcular Consumo'." TextChanged="in_consumo_TextChanged"/>
+                    </StackPanel>
+
                     <Grid Margin="5"/>
-                    <TextBlock Text="KM/L" FontSize="24" VerticalAlignment="Bottom"/>
-                </StackPanel>
 
-                <Grid Margin="5"/>
+                    <StackPanel Orientation="Vertical">
+                        <Button Content="Verificar" FontSize="36" Click="bt_alcool_x_gasolina" Height="64" ToolTipService.ToolTip="Verifica qual a melhor opção para abastecer."/>
+                    </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="Calcular" FontSize="36" Height="64" Click="bt_calcular_viagem" ToolTipService.ToolTip="Calcula quanto de combustivel você irá precisar para sua viagem."></Button>
                 </StackPanel>
             </StackPanel>
+            <TextBlock x:Name="tb_divisaoSp1Sp2" Margin="0,50,0,0"/>
+            <StackPanel x:Name="sp_2" Orientation="Horizontal" Margin="120,0,0,0">
+                <StackPanel x:Name="sp_viagem" Width="610">
+                    <TextBlock Text="Combustivel da Viagem" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="600"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Distância:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
+                        <TextBox x:Name="in_distancia" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite a distância do local de origem até o local de destino em quilômetros."/>
+                        <Grid Margin="5"/>
+                        <TextBlock Text="KM" FontSize="24" VerticalAlignment="Bottom"/>
+                    </StackPanel>
 
-            <StackPanel Grid.Row="1" Grid.Column="1">
-                <TextBlock Text="Informações" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="69" Width="383"/>
-                <TextBlock x:Name="tb_info"  FontSize="35" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="272" Width="656" Foreground="White"/>
+                    <Grid Margin="5"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Consumo:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
+                        <TextBox x:Name="in_consumo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite o consumo do seu carro. Caso não saiba calcule aqui na sessão 'Calcular Consumo'." TextChanged="in_consumo_TextChanged"/>
+                        <Grid Margin="5"/>
+                        <TextBlock Text="KM/L" FontSize="24" VerticalAlignment="Bottom"/>
+                    </StackPanel>
+
+                    <Grid Margin="5"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Calcular" FontSize="36" Height="64" Click="bt_calcular_viagem" ToolTipService.ToolTip="Calcula quanto de combustivel você irá precisar para sua viagem."/>
+                    </StackPanel>
+                </StackPanel>
+                <TextBlock x:Name="tb_divisaoViagemInfo" Margin="50,50,0,0"/>
+                <StackPanel x:Name="sp_info">
+                    <TextBlock Text="Informações" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="69" Width="383"/>
+                    <TextBlock x:Name="tb_info"  FontSize="35" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="272" Width="574" Foreground="White"/>
+                </StackPanel>
             </StackPanel>
-        </Grid>
-        
+        </StackPanel>
+
         <VisualStateManager.VisualStateGroups>
 
             <!-- Visual states reflect the application's view state -->
             <VisualStateGroup x:Name="ApplicationViewStates">
-                <VisualState x:Name="FullScreenLandscape"/>
-                <VisualState x:Name="Filled"/>
-
-                <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
-                <VisualState x:Name="FullScreenPortrait">
+                <VisualState x:Name="FullScreenLandscape">
                     <Storyboard>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PortraitBackButtonStyle}"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="sp_alcoolXgasolina">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>0,0,650,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="tb_info">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Double>235</x:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Filled">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="sp_principal">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>175,110,180,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="sp_1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>10,0,0,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="sp_2">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>10,0,0,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="tb_divisaoConsumoAlcool">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="tb_divisaoViagemInfo">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="sp_viagem">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Double>510</x:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="sp_consumo">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Double>511</x:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="tb_appName">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>118,0,170,40</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="tb_info">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Double>484</x:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
                         </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
 
-                <!-- The back button and title have different styles when snapped -->
-                <VisualState x:Name="Snapped">
+                <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
+                <VisualState x:Name="FullScreenPortrait">
+
+
                     <Storyboard>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(StackPanel.Orientation)" Storyboard.TargetName="sp_1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Orientation>Vertical</Orientation>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
                         </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Style">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(StackPanel.Orientation)" Storyboard.TargetName="sp_2">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Orientation>Vertical</Orientation>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="sp_titulo">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>340,30,320,1256</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="sp_consumo">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Double>NaN</x:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="sp_viagem">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Double>NaN</x:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="sp_principal">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>303,110,297,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="sp_1">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>30,0,0,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="sp_2">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>30,0,0,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
                         </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
+
+
+                </VisualState>
+
+                <!-- The back button and title have different styles when snapped -->
+                <VisualState x:Name="Snapped">
+
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="sp_titulo">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>535,25,512,663</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="sp_principal">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>-242,-162,242,10</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="sp_alcoolXgasolina">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>300,0,0,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="tb_info">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Double>286</x:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="sp_info">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Double>571</x:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="sp_info">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Double>296</x:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="tb_info">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Double>480</x:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="tb_appName">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Double>108</x:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
