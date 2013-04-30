@@ -31,13 +31,16 @@
         * Row 1 contains the rest of the page layout
     -->
 
-    <Grid HorizontalAlignment="Center" Background="Blue" Width="1366">
+    <Grid x:Name="grid" HorizontalAlignment="Center" Width="1366">
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/back.jpg"/>
+        </Grid.Background>
         <StackPanel x:Name="sp_titulo" Height="80" Margin="80,15,20,653">
             <TextBlock x:Name="tb_appName" TextWrapping="Wrap" Text="Auto Consumo" Style="{StaticResource PageHeaderTextStyle}" FontWeight="Bold"/>
         </StackPanel>
 
         <StackPanel x:Name="sp_principal" Margin="0,110,0,0">
-        <StackPanel x:Name="sp_1" Orientation="Horizontal" Margin="120,0,0,0">
+            <StackPanel x:Name="sp_1" Orientation="Horizontal" Margin="120,0,0,0">
                 <StackPanel x:Name="sp_consumo" Orientation="Vertical" Width="610">
                     <TextBlock Text="Calcular Consumo" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="383"/>
 
@@ -119,7 +122,7 @@
                 <TextBlock x:Name="tb_divisaoViagemInfo" Margin="50,50,0,0"/>
                 <StackPanel x:Name="sp_info">
                     <TextBlock Text="Informações" FontSize="45" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="69" Width="383"/>
-                    <TextBlock x:Name="tb_info"  FontSize="35" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="272" Width="574" Foreground="White"/>
+                    <TextBlock x:Name="tb_info"  FontSize="35" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="272" Width="574" Foreground="DarkBlue"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -141,6 +144,20 @@
                             <DiscreteObjectKeyFrame KeyTime="0">
                                 <DiscreteObjectKeyFrame.Value>
                                     <x:Double>235</x:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="grid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <x:Double>1422</x:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="grid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>0,0,0.222,0</Thickness>
                                 </DiscreteObjectKeyFrame.Value>
                             </DiscreteObjectKeyFrame>
                         </ObjectAnimationUsingKeyFrames>
