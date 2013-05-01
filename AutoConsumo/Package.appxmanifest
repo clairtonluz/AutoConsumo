@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="1b89285b-4d7b-4dae-9d19-c622aa474621" Publisher="CN=Clairton" Version="1.0.0.0" />
+  <Identity Name="34948CCSoftTecnologia.AutoConsumo" Publisher="CN=F04FEC8F-189F-4010-8D5D-161F82A8BCAC" Version="1.0.0.2" />
   <Properties>
-    <DisplayName>AutoConsumo</DisplayName>
-    <PublisherDisplayName>MetroStaff</PublisherDisplayName>
+    <DisplayName>Auto Consumo</DisplayName>
+    <PublisherDisplayName>CCSoft Tecnologia</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="AutoConsumo.App">
-      <VisualElements DisplayName="AutoConsumo" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Calcular o consumo de combustivel do seu veiculo, caso seu veiculo seja Flex você pode verificar qual combustível é mais lucrativo e Calcular quanto de combustivel você irá precisar para fazer uma determinada viagem." ForegroundText="light" BackgroundColor="blue">
+      <VisualElements DisplayName="Auto Consumo" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Calcular o consumo de combustivel do seu veiculo, caso seu veiculo seja Flex você pode verificar qual combustível é mais lucrativo e Calcular quanto de combustivel você irá precisar para fazer uma determinada viagem." ForegroundText="light" BackgroundColor="blue">
         <DefaultTile ShowName="allLogos" ShortName="Auto Consumo" WideLogo="Assets\WideLogo.png" />
         <SplashScreen Image="Assets\SplashScreen.png" />
         <InitialRotationPreference>
