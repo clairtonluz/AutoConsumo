@@ -19,9 +19,9 @@ namespace AutoConsumo
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class MainPage : AutoConsumo.Common.LayoutAwarePage
+    public sealed partial class Consumo : AutoConsumo.Common.LayoutAwarePage
     {
-        public MainPage()
+        public Consumo()
         {
             this.InitializeComponent();
         }
@@ -37,6 +37,15 @@ namespace AutoConsumo
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
+            if (pageState != null && pageState.ContainsKey("in_kmRodado"))
+            {
+                in_kmRodado.Text = pageState["in_kmRodado"].ToString();
+            }
+
+            if (pageState != null && pageState.ContainsKey("in_litrosGasto"))
+            {
+                in_listrosGasto.Text = pageState["in_litrosGasto"].ToString();
+            }
         }
 
         /// <summary>
@@ -47,30 +56,29 @@ namespace AutoConsumo
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
+            pageState["in_kmRodado"] = in_kmRodado.Text;
+            pageState["in_litrosGasto"] = in_listrosGasto.Text;
+            
         }
 
-        private void Grid_Consumo_PointerPressed(object sender, PointerRoutedEventArgs e)
+        private void bt_calcular(object sender, RoutedEventArgs e)
         {
-            if (this.Frame != null)
+            try
             {
-                this.Frame.Navigate(typeof(Consumo));
-            }
-        }
+                in_kmRodado.Text = in_kmRodado.Text.Replace('.', ',');
+                in_listrosGasto.Text = in_listrosGasto.Text.Replace('.', ',');
 
-        private void Grid_AlcoolXGasolina_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            if (this.Frame != null)
-            {
-                this.Frame.Navigate(typeof(AlcoolGasolina));
+                double kmrodado = Double.Parse(in_kmRodado.Text);
+                double litrosGastos = Double.Parse(in_listrosGasto.Text);
+                double resultado = kmrodado / litrosGastos;
+                tb_info.Text = "Consumo = " + resultado + " KM/L";
+                //in_consumo.Text = "" + resultado;
             }
-        }
+            catch (FormatException e1)
+            {
+                tb_info.Text = "Valor passado não é válido.";
+            }
 
-        private void Grid_ConbustivelViagem_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            if (this.Frame != null)
-            {
-                this.Frame.Navigate(typeof(CombustivelViagem));
-            }
         }
     }
 }
