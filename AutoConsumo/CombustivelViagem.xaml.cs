@@ -71,7 +71,12 @@ namespace AutoConsumo
 
                 double distancia = Double.Parse(in_distancia.Text);
                 double consumo = Double.Parse(in_consumo.Text);
-                tb_info.Text = "Para viajar " + in_distancia.Text + " KM é necessário " + distancia / consumo +
+                
+
+                in_distancia.Text = String.Format("{0:0.00}", distancia);
+                in_consumo.Text = String.Format("{0:0.00}", consumo);
+
+                tb_info.Text = "Para viajar " + in_distancia.Text + " KM é necessário " + String.Format("{0:0.00}", (distancia / consumo)) +
                     " litros de combustivel.";
             }
             catch (FormatException e1)

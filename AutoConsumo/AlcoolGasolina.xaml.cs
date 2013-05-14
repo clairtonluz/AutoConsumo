@@ -71,15 +71,15 @@ namespace AutoConsumo
 
                 double porcento = 100 - ((alcool * 100) / gasolina);
 
+                in_gasolina.Text = String.Format("{0:0.00}", gasolina);
+                in_alcool.Text = String.Format("{0:0.00}", alcool);
                 if (porcento > 30)
                 {
-                    tb_info.Text = "Abastecer alcool é mais lucrativo. \nalcool está = " + porcento +
-                                   "% mais em conta.";
+                    tb_info.Text = "Abastecer alcool é mais lucrativo.";
                 }
                 else
                 {
-                    tb_info.Text = "Abastecer gasolina é mais lucrativo.\nAlcool está apenas = " + porcento + "% mais em conta.\n" +
-                                   "O alcool só compençará se estiver acima de 30% mais barato.";
+                    tb_info.Text = "Abastecer gasolina é mais lucrativo.";
                 }
             }
             catch (FormatException e1)

@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="AutoConsumo.App">
-      <VisualElements DisplayName="Auto Consumo" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Calcular o consumo de combustivel do seu veiculo, caso seu veiculo seja Flex você pode verificar qual combustível é mais lucrativo e Calcular quanto de combustivel você irá precisar para fazer uma determinada viagem." ForegroundText="light" BackgroundColor="blue">
+      <VisualElements DisplayName="Auto Consumo" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Calcular o consumo de combustivel do seu veiculo, caso seu veiculo seja Flex você pode verificar qual combustível é mais lucrativo e Calcular quanto de combustivel você irá precisar para fazer uma determinada viagem." ForegroundText="light" BackgroundColor="red">
         <DefaultTile ShowName="allLogos" ShortName="Auto Consumo" WideLogo="Assets\WideLogo.png" />
         <SplashScreen Image="Assets\SplashScreen.png" />
         <InitialRotationPreference>

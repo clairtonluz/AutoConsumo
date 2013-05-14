@@ -21,14 +21,14 @@
         * Row 0 contains the back button and page title
         * Row 1 contains the rest of the page layout
     -->
-    <Grid Style="{StaticResource LayoutRootStyle}">
+    <Grid Style="{StaticResource LayoutRootStyle}" Background="#FFEA0000">
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- Back button and page title -->
-        <Grid>
+        <Grid Background="#66FFFFFF">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
@@ -36,7 +36,7 @@
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
-        <TextBlock Text="Álcool x Gasolina" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="120,0,0,555" Grid.Row="1"/>
+        <TextBlock Text="Álcool x Gasolina" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="120,20,0,555" Grid.Row="1"/>
         <StackPanel x:Name="sp_main" Grid.Row="1" Margin="120,100,0,0" Orientation="Horizontal">
             <StackPanel x:Name="sp_1" Orientation="Horizontal">
                 <StackPanel x:Name="sp_alcoolXgasolina" Orientation="Vertical">
@@ -66,7 +66,7 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel x:Name="sp_info" Margin="20,0,0,0">
-                <TextBlock x:Name="tb_info"  FontSize="35" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="272" Width="574" Foreground="DarkBlue"/>
+                <TextBlock x:Name="tb_info"  FontSize="35" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="272" Width="574"/>
             </StackPanel>
         </StackPanel>
 

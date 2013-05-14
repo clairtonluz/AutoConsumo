@@ -71,8 +71,16 @@ namespace AutoConsumo
                 double kmrodado = Double.Parse(in_kmRodado.Text);
                 double litrosGastos = Double.Parse(in_listrosGasto.Text);
                 double resultado = kmrodado / litrosGastos;
-                tb_info.Text = "Consumo = " + resultado + " KM/L";
-                //in_consumo.Text = "" + resultado;
+                String resultString = String.Format("{0:0.00}", resultado);
+                tb_info.Text = "Consumo = " + resultString + " KM/L";
+
+
+                in_kmRodado.Text = String.Format("{0:0.00}", kmrodado);
+                in_listrosGasto.Text = String.Format("{0:0.00}", litrosGastos);
+
+                Windows.Storage.ApplicationDataContainer roamingSettings =
+                Windows.Storage.ApplicationData.Current.RoamingSettings;
+                roamingSettings.Values["in_consumo"] = resultString;
             }
             catch (FormatException e1)
             {
