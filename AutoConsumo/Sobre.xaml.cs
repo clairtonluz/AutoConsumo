@@ -19,9 +19,9 @@ namespace AutoConsumo
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class MainPage : AutoConsumo.Common.LayoutAwarePage
+    public sealed partial class Sobre : AutoConsumo.Common.LayoutAwarePage
     {
-        public MainPage()
+        public Sobre()
         {
             this.InitializeComponent();
         }
@@ -47,38 +47,6 @@ namespace AutoConsumo
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
-        }
-
-        private void Grid_Consumo_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            if (this.Frame != null)
-            {
-                this.Frame.Navigate(typeof(Consumo));
-            }
-        }
-
-        private void Grid_AlcoolXGasolina_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            if (this.Frame != null)
-            {
-                this.Frame.Navigate(typeof(AlcoolGasolina));
-            }
-        }
-
-        private void Grid_ConbustivelViagem_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            if (this.Frame != null)
-            {
-                this.Frame.Navigate(typeof(CombustivelViagem));
-            }
-        }
-
-        private void Grid_Sobre_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            if (this.Frame != null)
-            {
-                this.Frame.Navigate(typeof (Sobre));
-            }
         }
     }
 }

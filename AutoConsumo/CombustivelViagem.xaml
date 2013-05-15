@@ -36,13 +36,13 @@
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
-        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Left" Margin="120,20,0,555" Grid.Row="1">
+        <TextBlock TextWrapping="Wrap" Margin="120,20,0,555" Grid.Row="1" Style="{StaticResource PageSubheaderTextStyle}">
         	<Run Text="Combustivel da Viagem"/>
         	<LineBreak/>
         	<Run Text=""/>
         </TextBlock>
         <StackPanel x:Name="sp_main" Grid.Row="1" Margin="120,100,0,0" Orientation="Horizontal">
-            <StackPanel x:Name="sp_viagem" Width="610" Margin="0,0,0,204">
+            <StackPanel x:Name="sp_viagem" Margin="0,0,0,204">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Distância:" FontSize="36" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Height="39" Width="170"/>
                     <TextBox x:Name="in_distancia" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="43" ToolTipService.ToolTip="Digite a distância do local de origem até o local de destino em quilômetros."/>
@@ -66,7 +66,7 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel x:Name="sp_info" Margin="20,0,0,0">
-                <TextBlock x:Name="tb_info"  FontSize="35" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="272" Width="574"/>
+                <TextBlock x:Name="tb_info"  TextWrapping="Wrap" Width="574"/>
             </StackPanel>
         </StackPanel>
 

@@ -36,7 +36,7 @@
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
-        <TextBlock Text="Calcular Consumo" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="120,20,0,555" Grid.Row="1"/>
+        <TextBlock Text="Calcular Consumo" TextWrapping="Wrap" Margin="120,20,0,555" Grid.Row="1" Style="{StaticResource PageSubheaderTextStyle}"/>
         <StackPanel x:Name="sp_main" Grid.Row="1" Margin="120,100,0,0" Orientation="Horizontal">
 
             <StackPanel x:Name="sp_consumo" Orientation="Vertical">
@@ -63,7 +63,7 @@
 
             </StackPanel>
             <StackPanel x:Name="sp_info" Margin="20,0,0,0">
-                <TextBlock x:Name="tb_info"  FontSize="35" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="272" Width="574"/>
+                <TextBlock x:Name="tb_info" TextWrapping="Wrap" Width="574"/>
             </StackPanel>
         </StackPanel>
 
